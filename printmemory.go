@@ -11,10 +11,13 @@ func PrintHex(n int) {
 		n /= 16
 	}
 	base16 := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}
+
+	if len(a) == 1 {
+		z01.PrintRune('0')
+	}
 	for i := len(a) - 1; i >= 0; i-- {
 		z01.PrintRune(base16[a[i]])
 	}
-	z01.PrintRune(' ')
 }
 
 func PrintMemory(arr [10]byte) {
@@ -25,17 +28,23 @@ func PrintMemory(arr [10]byte) {
 		}
 		if i < 4 {
 			PrintHex(int(v))
-			if i == 3 {
+			if i != 3 {
+				z01.PrintRune(' ')
+			} else {
 				z01.PrintRune('\n')
 			}
 		} else if i < 8 {
 			PrintHex(int(v))
-			if i == 7 {
+			if i != 7 {
+				z01.PrintRune(' ')
+			} else {
 				z01.PrintRune('\n')
 			}
 		} else if i < 10 {
-			PrintHex((int(v)))
-			if i == 9 {
+			PrintHex(int(v))
+			if i != 9 {
+				z01.PrintRune(' ')
+			} else {
 				z01.PrintRune('\n')
 			}
 		}
