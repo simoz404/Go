@@ -19,7 +19,6 @@ func PrintHex(n int) {
 		z01.PrintRune(base16[a[i]])
 	}
 }
-
 func PrintMemory(arr [10]byte) {
 	for i, v := range arr {
 		if v == 0 {
